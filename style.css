@@ -1,0 +1,116 @@
+body{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "main1  main2 ";
+    height: 100hv;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: url("photo.png"); 
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 5%;
+    background-color:rgb(164, 217, 240);  
+   
+}
+.contenu{
+    max-width: 700px;
+    width: 100%;
+    background: rgb(147, 217, 231)20, 234, 245);
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin-left: 100%;
+    }
+
+
+.contenu input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1x solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+h1{
+    text-align: center;
+    font-size:xx-large;
+    font-style: oblique;
+    color: #1a2e35;
+}
+h2{
+   
+    color: #5780d8;
+    font-size: 22px;
+    letter-spacing: 1px;
+   font-style: italic;
+}
+h3{
+    color: #1a2e35;
+    font-size: 22px;
+    letter-spacing: 1px;
+   font-style: italic;
+}
+
+
+table {
+    max-width: 700px;
+    width: 100%;
+    background: rgb(104, 154, 187)20, 235, 245);
+    padding: 25px 30px;
+    border-radius: 5px;
+    
+    }
+    th {
+    font-family: monospace;
+    
+    padding: 5px;
+    background-color: rgb(54, 116, 197)20, 235, 245);
+    }
+    td {
+    font-family: sans-serif;
+   
+    padding: 5px;
+    text-align: center;
+    background-color:rgba(0, 0, 139, 0.817);
+    }
+    
+    .caption {
+    font-family: sans-serif;
+    }
+.contenu button{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color:#5780d8;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #1e1e35, rgb(56, 73, 204)102, 216));
+    margin: 3px;
+}
+
+.text{
+    height: 100%;
+    width: 100%;
+    color: rgb(83, 100, 228);
+    font-size: 24px;
+    letter-spacing: 1px;
+   font-style: italic;
+   margin-left: 15%;
+   
+  
+}
+.ensi{
+height: 200px;
+margin-left: 33%;
+opacity: 0.8;
+}
+.right{
+    grid-area: main2;
+    margin-top: 1%;
+}

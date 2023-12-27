@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_BUS 10
+#define MAX_RESERVATIONS 50
+
+// Tableau pour stocker les informations sur les bus
+int numeroBus[MAX_BUS];
+char destinations[MAX_BUS][100];
+int capacites[MAX_BUS];
+int placesDisponibles[MAX_BUS];
+
+// Tableau pour stocker les informations sur les réservations
+int numeroReservations[MAX_RESERVATIONS];
+int numerosBusReserves[MAX_RESERVATIONS];
+char nomsVoyageurs[MAX_RESERVATIONS][50];
+char prenomsVoyageurs[MAX_RESERVATIONS][50];
+int agesVoyageurs[MAX_RESERVATIONS];
+
+
+int indiceBus = 0;
+int indiceReservation = 0;
+
+// Fonction pour créer un nouveau compte voyageur
+void creerVoyageur(int indice) {
+    printf("Nom du voyageur : ");
+    scanf("%s", nomsVoyageurs[indice]);
+    printf("Prénom du voyageur : ");
+    scanf("%s", prenomsVoyageurs[indice]);
+    printf("Age du voyageur : ");
+    scanf("%d", &agesVoyageurs[indice]);
+}
+// Fonction pour créer une nouvelle réservation
+void creerReservation() {
+    int numeroBus;
+    printf("Choisissez le numéro du bus : ");
+    scanf("%d", &numeroBus);
+
+    if (numeroBus < 1 || numeroBus > indiceBus || placesDisponibles[numeroBus - 1] == 0) {
+        printf("Erreur : Numéro de bus invalide ou plus de places disponibles.\n");
+        return;
+    }
+
+    numeroReservations[indiceReservation] = indiceReservation + 1;
+    numerosBusReserves[indiceReservation] = numeroBus;
+
+    creerVoyageur(indiceReservation);
+
+    placesDisponibles[numeroBus - 1]--;
+    indiceReservation++;
+
+    printf("Réservation créée avec succès.\n");
+}
+
+// Fonction pour afficher les détails d'un bus
+void afficherDetailsBus(int numero) {
+    printf("Bus #%d - Destination: %s, Capacité: %d, Places disponibles: %d\n", numero, destinations[numero - 1], capacites[numero - 1], placesDisponibles[numero - 1]);
+}
+
+// Fonction pour afficher les détails d'une réservation
+void afficherDetailsReservation(int indice) {
+    printf("Réservation #%d - Bus #%d\n", numeroReservations[indice], numerosBusReserves[indice]);
+    printf("Voyageur : %s %s, Age : %d\n", nomsVoyageurs[indice], prenomsVoyageurs[indice], agesVoyageurs[indice]);
+}
+
+int main() {
+   
+    numeroBus[indiceBus] = indiceBus + 1;
+    strcpy(destinations[indiceBus], "Paris");
+    capacites[indiceBus] = 50;
+    placesDisponibles[indiceBus] = capacites[indiceBus];
+    indiceBus++;
+
+    numeroBus[indiceBus] = indiceBus + 1;
+    strcpy(destinations[indiceBus], "Lyon");
+    capacites[indiceBus] = 40;
+    placesDisponibles[indiceBus] = capacites[indiceBus];
+    indiceBus++;
+
+    afficherDetailsBus(1);
+    afficherDetailsBus(2);
+
+    creerReservation();
+    creerReservation();
+
+    afficherDetailsReservation(0);
+    afficherDetailsReservation(1);
+
+    return 0;
+}
